@@ -8,7 +8,7 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      background-color: black;
+      background: black;
     }
     video {
       width: 100%;
@@ -19,9 +19,18 @@
   </style>
 </head>
 <body>
-  <video autoplay muted playsinline controls>
+  <video id="vid" autoplay muted playsinline controls>
     <source src="oleh.MP4" type="video/mp4">
     Ваш браузер не підтримує відео.
   </video>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const video = document.getElementById("vid");
+      video.play();
+      video.requestFullscreen?.();
+      video.webkitEnterFullscreen?.(); // для iOS Safari
+    });
+  </script>
 </body>
 </html>
